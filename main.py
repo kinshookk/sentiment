@@ -51,3 +51,21 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 
 
 #Training
+model = MultinomialNB()
+model.fit(X_train, y_train)
+
+
+#evaluate 
+y_pred = model.predict(X_test)
+print("Accuracy: ",accuracy_score(y_test,y_pred))
+print("\nClassification Report:\n ",classification_report(y_test,y_pred))
+
+
+def predict_sentiment(text):
+    processed = preprocess(text)
+    vector = vectorizer.transform([processed])
+    return model.predict(vector)[0]
+
+#Test prediction 
+
+print("Prediction: ", predict_sentiment("I absolutely love this!"))
