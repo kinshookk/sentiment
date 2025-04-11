@@ -1,4 +1,6 @@
-pandas
-nltk
+torch
+transformers
+datasets
 scikit-learn
 numpy
+pandas
